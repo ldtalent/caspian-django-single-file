@@ -122,4 +122,7 @@ dmypy.json
 # Virtual environment
 sfa_blogenv/
 
+# VS code
+settings.json
+
 # End of https://www.gitignore.io/api/django
