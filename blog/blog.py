@@ -10,6 +10,7 @@ from decouple import config, Csv
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
+# SETTINGS
 settings.configure(
 	DEBUG=config('DEBUG', default=False, cast=bool),
 	SECRET_KEY=config('SECRET_KEY'),
@@ -25,7 +26,7 @@ settings.configure(
 	],
 	MIDDLEWARE = [
 		'django.middleware.security.SecurityMiddleware',
-    	'django.contrib.sessions.middleware.SessionMiddleware',
+		'django.contrib.sessions.middleware.SessionMiddleware',
 		'django.middleware.common.CommonMiddleware',
 		'django.middleware.csrf.CsrfViewMiddleware',
 		'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -33,12 +34,12 @@ settings.configure(
 		'django.middleware.clickjacking.XFrameOptionsMiddleware',
 	],
 	TEMPLATES = [
-    	{
-        	'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        	'DIRS': [
-            	os.path.join(BASE_DIR, 'templates'),
-        	],
-        	'APP_DIRS': True,
+		{
+			'BACKEND': 'django.template.backends.django.DjangoTemplates',
+			'DIRS': [
+				os.path.join(BASE_DIR, 'templates'),
+			],
+			'APP_DIRS': True,
 			'OPTIONS': {
 				'context_processors': [
 					'django.template.context_processors.debug',
@@ -57,15 +58,19 @@ settings.configure(
 	},
 	STATIC_URL = '/static/',
 	STATICFILES_DIR = [
-    	os.path.join(BASE_DIR, 'static'),
+		os.path.join(BASE_DIR, 'static'),
 	]
 )
 
 setup()
 
+
+# VIEWS
 def index(request):
 	return HttpResponse("<h1>Hello, this is a minimal project setup. Configure as you please!</h1>")
 
+
+# URLS
 urlpatterns = [
 	path('admin/', admin.site.urls),
 	path('', index, name='index'),
