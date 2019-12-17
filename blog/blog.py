@@ -23,6 +23,7 @@ settings.configure(
 		'django.contrib.sessions',
 		'django.contrib.messages',
 		'django.contrib.staticfiles',
+		'blogapp',
 	],
 	MIDDLEWARE = [
 		'django.middleware.security.SecurityMiddleware',
